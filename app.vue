@@ -38,10 +38,10 @@ const getOptionStyle = (questionIndex, option) => {
   if (!selectedAnswers.value[questionIndex]) return {};
 
   if (option[0] === correctAnswer) {
-    return { backgroundColor: 'darkgreen', color:"black" };
+    return { backgroundColor: 'darkgreen', color:"white" };
   }
   if (option === selectedAnswers.value[questionIndex]) {
-    return { backgroundColor: 'darkred', color:"black" };
+    return { backgroundColor: 'darkred', color:"white" };
   }
 
   return {};
