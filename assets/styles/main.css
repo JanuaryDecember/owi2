@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    background-color: #0B1C2C;
+    color: #b6adad;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.option {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+option input[type="radio"]:disabled {
+    cursor: not-allowed;
+}
