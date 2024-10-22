@@ -1,15 +1,15 @@
 1. Co jest warunkiem trwania prawa ochronnego?
-a. Tylko uiszczanie opłaty okresowej.
-b. Uiszczanie opłaty okresowej oraz  coroczna rejestracja.
-c. Tylko coroczna aktualizacja wzoru.
-d. Uiszczanie opłaty okresowej oraz aktualizacja wzoru.
+a. Tylko uiszczanie opłaty okresowej
+b. Uiszczanie opłaty okresowej oraz  coroczna rejestracja
+c. Tylko coroczna aktualizacja wzoru
+d. Uiszczanie opłaty okresowej oraz aktualizacja wzoru
 Odpowiedź: a
 
 2. Jakiego warunku nie musi spełniać wynalazek?
-a. Musi posiadać poziom wynalazczy.
-b. Nadaje się do przemysłowego zastosowania.
-c. Musi być nowy.
-d. Musi być użyteczny.
+a. Musi posiadać poziom wynalazczy
+b. Nadaje się do przemysłowego zastosowania
+c. Musi być nowy
+d. Musi być użyteczny
 Odpowiedź: d
 
 3. Prawo ochronne posiada znak towarowy, w którego sąsiedztwie znajduje się w okręgu litera:
@@ -44,7 +44,7 @@ Odpowiedź: a
 a. Wszystkie odpowiedzi są poprawne.
 b. Tylko kara ograniczenia wolności.
 c. Tylko grzywna.
-d. Kara pozbawienia wolności do lat 3.
+d. Kara pozbawienia wolności do lat 3
 Odpowiedź: a
 
 8. Współtwórcą utworu audiowizualnego nie jest:
@@ -99,7 +99,7 @@ Odpowiedź: a
 15. Za naruszenie praw do bazy danych grozi:
 a. ograniczenie wolności oraz kara grzywny.
 b. usunięcie skutków naruszenia lub naprawienie wyrządzonej szkody oraz kara grzywny.
-c. usunięcie skutków naruszenia lub naprawienie wyrządzonej szkody oraz pozbawienie wolności do lat 5.
+c. usunięcie skutków naruszenia lub naprawienie wyrządzonej szkody oraz pozbawienie wolności do lat 5
 d. pozbawienie wolności do lat 5 oraz kara grzywny.
 Odpowiedź: b
 
