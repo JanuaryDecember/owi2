@@ -67,6 +67,7 @@ const nextSet = () => {
   if (remainingQuestions.value.length > 0) {
     console.log(remainingQuestions.value.length)
     selectRandomQuestions();
+    window.scrollTo({ top: true });
   } else {
     alert('Quiz completed! All questions have been answered.');
   }
