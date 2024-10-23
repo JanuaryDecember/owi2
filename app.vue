@@ -8,11 +8,17 @@ if (Array.isArray(allQuestions.value)) {
   remainingQuestions.value = [...allQuestions.value];
 }
 
-console.log(allQuestions.value.length)
-
 const selectedQuestions = ref([]);
 const selectedAnswers = ref([]);
 const isSubmitted = ref(false);
+
+const shuffleArray = (array) => {
+  return array
+    .map(value => ({ value, sort: Math.random() }))
+    .sort((a, b) => a.sort - b.sort)
+    .map(({ value }) => value);
+};
+
 
 const selectRandomQuestions = () => {
   selectedQuestions.value = remainingQuestions.value
@@ -21,6 +27,15 @@ const selectRandomQuestions = () => {
   remainingQuestions.value = remainingQuestions.value.filter(
     q => !selectedQuestions.value.includes(q)
   );
+  selectedQuestions.value = selectedQuestions.value.map(question => {
+    // Shuffle the options and track the correct answer after shuffling
+    const shuffledOptions = shuffleArray(question.options);
+    return {
+      ...question,
+      shuffledOptions,  // Store shuffled options
+      correctAnswer: question.correctAnswer // Keep track of the correct answer
+    }
+  })
   selectedAnswers.value = Array(selectedQuestions.value.length).fill(null);
   isSubmitted.value = false;
 };
@@ -39,7 +54,7 @@ const checkAnswers = () => {
 const correctAnswersCount = computed(() => {
   return selectedQuestions.value.reduce((count, question, index) => {
     const correctAnswer = question.correctAnswer;
-    if (selectedAnswers.value[index][0] === correctAnswer) {
+    if (selectedAnswers.value[index] === correctAnswer) {
       count++;
     }
     return count;
@@ -52,7 +67,7 @@ const getOptionStyle = (questionIndex, option) => {
   const correctAnswer = selectedQuestions.value[questionIndex].correctAnswer;
   if (!selectedAnswers.value[questionIndex]) return {};
 
-  if (option[0] === correctAnswer) {
+  if (option === correctAnswer) {
     return { backgroundColor: 'darkgreen', color: 'white' };
   }
   if (option === selectedAnswers.value[questionIndex]) {
@@ -65,7 +80,6 @@ const getOptionStyle = (questionIndex, option) => {
 
 const nextSet = () => {
   if (remainingQuestions.value.length > 0) {
-    console.log(remainingQuestions.value.length)
     selectRandomQuestions();
     window.scrollTo({ top: true });
   } else {
@@ -82,7 +96,7 @@ const nextSet = () => {
         style="border: solid; padding: 2rem; max-width: 80vw; width: 100%; border-radius: 4rem; border-color: beige;">
         <p>{{ index + 1 }}. {{ question.question }}</p>
 
-        <div v-for="(option, optIndex) in question.options" :key="optIndex" class="option"
+        <div v-for="(option, optIndex) in question.shuffledOptions" :key="optIndex" class="option"
           :style="getOptionStyle(index, option)">
           <label>
             <input type="radio" :name="'question' + index" :value="option" v-model="selectedAnswers[index]"
@@ -92,11 +106,9 @@ const nextSet = () => {
         </div>
       </div>
 
-      <!-- Submit Button -->
       <button type="submit" :disabled="isSubmitted">Submit Answers</button>
     </form>
 
-    <!-- "Next" Button, only shown after submission -->
     <div v-if="isSubmitted" style="text-align: center; margin-top: 1rem;">
       <button @click="nextSet" v-if="remainingQuestions.length > 0">Next 10 Questions</button>
       <p v-else>All questions completed! Thanks for playing.</p>

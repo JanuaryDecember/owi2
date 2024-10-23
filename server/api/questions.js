@@ -2,7 +2,7 @@ import { promises as fs } from 'fs';
 import path from 'path';
 
 export default defineEventHandler(async (event) => {
-  const filePath = path.resolve('static/questions.txt');
+  const filePath = path.resolve('public/questions.txt')
 
 
   try {
@@ -24,10 +24,13 @@ export default defineEventHandler(async (event) => {
         return null;
       }
 
+
+
+
       return {
         question: questionText,
-        options: options.map((opt) => opt.trim()), // Trim each option
-        correctAnswer: answer.trim(), // Trim the answer
+        options: options.map((opt) => opt.substring(2).trim()), // Trim each option
+        correctAnswer: options.find(opt => opt.at(0) === answer.trim()[0]).substring(2).trim(), // Trim the answer
       };
     }).filter(Boolean);
 
